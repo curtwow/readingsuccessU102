@@ -46,8 +46,99 @@
 @media(max-width:650px){.overview-hero{grid-template-columns:1fr}.overview-hero>div{padding:23px 22px}.overview-hero img{height:168px}.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.summary-item img{height:122px}.summary-item .summary-text{padding:10px}.summary-item strong{font-size:16px}.summary-grammar-grid{grid-template-columns:1fr}.summary-culture-grid{grid-template-columns:1fr}.culture-card>img{width:31%}.lesson-modal-backdrop{padding:8px;align-items:center}.lesson-modal-window{max-height:92dvh;border-radius:19px}.lesson-modal-heading{grid-template-columns:132px 1fr;min-height:155px}.lesson-modal-heading img{width:132px;min-height:155px}.lesson-modal-title{padding:21px 44px 19px 15px}.lesson-modal-title h2{font-size:25px}.lesson-modal-title .translated{font-size:16px}.lesson-modal-detail{padding:14px 19px 23px}.lesson-modal-close{top:9px;margin:9px 9px -50px 0;width:37px;height:37px}.wordcard img{height:112px}.wordcard .wordcard-info{padding:10px 12px}.summary-filters button{font-size:12px;padding:9px 12px}}
 @media print{#lessonModal,.summary-tools{display:none!important}}
 
+
+/* Adjustable typography for classroom projection, mobile reading and assessment */
+:root{--lesson-font-scale:1.2}
+.font-tools{display:inline-flex;align-items:center;gap:5px;flex-shrink:0;padding:5px 6px 5px 10px;border:1px solid #d5e3d4;border-radius:999px;background:#f5faf3;box-shadow:0 2px 8px #5b6a5c0b;color:#385e48}
+.font-tools-label{font-size:13px;font-weight:800;white-space:nowrap;margin-right:3px}
+.font-tools-btn,.font-tools-reset{border:1px solid #dbe8db;background:#fff;color:#3d684d;border-radius:999px;min-height:34px;padding:5px 9px;font-size:14px;font-weight:850;white-space:nowrap}
+.font-tools-btn{min-width:41px}
+.font-tools-reset{font-size:12px;padding-inline:10px}
+.font-tools-btn:disabled{opacity:.36;cursor:not-allowed}
+.font-tools-btn:hover:not(:disabled),.font-tools-reset:hover{background:#e5f1e5}
+#fontSizeValue{font-variant-numeric:tabular-nums;font-size:13px;font-weight:900;min-width:45px;text-align:center}
+/* The font tools intentionally keep their own size, so students can always reach the controls. */
+body{font-size:calc(16px * var(--lesson-font-scale))}
+.nav button{font-size:calc(15px * var(--lesson-font-scale))}
+.hero p,.overview-hero p{font-size:calc(17px * var(--lesson-font-scale))}
+.hero .sub{font-size:calc(19px * var(--lesson-font-scale))}
+.chip,.eyebrow,.sectiondesc,.overview-stats span{font-size:calc(13px * var(--lesson-font-scale))}
+.sectiontitle{font-size:calc(25px * var(--lesson-font-scale))}
+.controls .toggle,.mini,.secondary,.action,.summary-filters button,.search{font-size:calc(14px * var(--lesson-font-scale))}
+.letter p{font-size:calc(20px * var(--lesson-font-scale));line-height:2.05}
+.translation{font-size:calc(16px * var(--lesson-font-scale));line-height:1.9}
+.paraindex,.hint,.muted{font-size:calc(13px * var(--lesson-font-scale))}
+.wordcard strong{font-size:calc(19px * var(--lesson-font-scale))}
+.wordcard span,.wordcard em{font-size:calc(14px * var(--lesson-font-scale))}
+.wordpanel h3{font-size:calc(31px * var(--lesson-font-scale))}
+.wordpanel .meaning{font-size:calc(19px * var(--lesson-font-scale))}
+.wordpanel .note,.wordpanel .enexample{font-size:calc(15px * var(--lesson-font-scale))}
+.grammar h3{font-size:calc(20px * var(--lesson-font-scale))}
+.grammar .formula,.grammar .example{font-size:calc(17px * var(--lesson-font-scale))}
+.grammar .gnum,.grammar .exzh,.grammar .detail{font-size:calc(14px * var(--lesson-font-scale))}
+.question{font-size:calc(20px * var(--lesson-font-scale))}
+.blank{font-size:calc(18px * var(--lesson-font-scale))}
+.opt,.feedback,.readingq{font-size:calc(16px * var(--lesson-font-scale))}
+.cloze-item .cq-text{font-size:calc(19px * var(--lesson-font-scale))}
+.cloze-item .cq-input{font-size:calc(18px * var(--lesson-font-scale));max-width:35vw}
+.cloze-item .cq-zh,.cloze-item .cq-note{font-size:calc(15px * var(--lesson-font-scale))}
+.cloze-item .cq-tip,.cloze-item .cq-result,.cloze-item .cq-num{font-size:calc(13px * var(--lesson-font-scale))}
+.cloze-toolbar label,.cloze-toolbar select{font-size:calc(14px * var(--lesson-font-scale))}
+.required-tag{font-size:calc(14px * var(--lesson-font-scale))}
+.required-vocab-head strong{font-size:calc(18px * var(--lesson-font-scale))}
+.summary-heading h3{font-size:calc(22px * var(--lesson-font-scale))}
+.summary-item strong{font-size:calc(18px * var(--lesson-font-scale))}
+.summary-item .summary-zh{font-size:calc(14px * var(--lesson-font-scale))}
+.summary-item .summary-label,.summary-grammar .n{font-size:calc(12px * var(--lesson-font-scale))}
+.summary-grammar strong{font-size:calc(17px * var(--lesson-font-scale))}
+.summary-grammar span:last-child{font-size:calc(13px * var(--lesson-font-scale))}
+.culture-card h4{font-size:calc(18px * var(--lesson-font-scale))}
+.culture-card p{font-size:calc(14px * var(--lesson-font-scale))}
+.culture-card a{font-size:calc(13px * var(--lesson-font-scale))}
+.lesson-modal-title h2{font-size:calc(31px * var(--lesson-font-scale));overflow-wrap:anywhere}
+.lesson-modal-title .translated{font-size:calc(20px * var(--lesson-font-scale))}
+.lesson-modal-kicker,.lesson-fact h3{font-size:calc(13px * var(--lesson-font-scale))}
+.lesson-fact p{font-size:calc(16px * var(--lesson-font-scale))}
+.lesson-fact .lesson-example{font-size:calc(19px * var(--lesson-font-scale))}
+.lesson-fact .lesson-formula{font-size:calc(18px * var(--lesson-font-scale))}
+.lesson-fact .lesson-example-zh,.lesson-cultural p{font-size:calc(15px * var(--lesson-font-scale))}
+.lesson-cultural a,.lesson-cultural strong,.lesson-modal-buttons button{font-size:calc(14px * var(--lesson-font-scale))}
+@media(max-width:770px){
+ .topinner{flex-wrap:wrap;justify-content:center;row-gap:3px;padding-top:7px;padding-bottom:7px}
+ .brand{margin-right:auto}
+ .topright{margin-left:auto;flex-wrap:wrap;justify-content:flex-end}
+ .font-tools{padding:4px 5px 4px 8px}
+ .font-tools-label{font-size:12px}
+ .letter p{font-size:calc(19px * var(--lesson-font-scale))}
+ .summary-grid,.wordsgrid{min-width:0}
+ .wordcard strong,.summary-item strong{overflow-wrap:anywhere}
+ .cloze-item .cq-input{max-width:33vw}
+ .lesson-modal-title h2{font-size:calc(25px * var(--lesson-font-scale))}
+ .lesson-modal-title .translated{font-size:calc(17px * var(--lesson-font-scale))}
+}
+@media(max-width:470px){
+ .topinner .brand{font-size:13px}
+ .topright{width:100%;justify-content:center}
+ .font-tools{width:100%;justify-content:space-around;max-width:360px}
+ .lesson-modal-heading{grid-template-columns:34% minmax(0,1fr)}
+ .lesson-modal-heading img{width:100%;min-height:155px}
+ .lesson-modal-title{min-width:0}
+ .cloze-item .cq-multiblank{flex-wrap:wrap;white-space:normal}
+ .cloze-item .cq-multiblank .cq-input{width:min(26vw,115px)}
+ .cloze-item .cq-multiblank .cq-input.small-part{width:min(20vw,85px)}
+}
+@media print{.font-tools{display:none!important}}
+
 </style></head><body>
-<header class="topbar"><div class="shell topinner"><div class="brand"><span class="brandicon">✉️</span><span>Reading Success <span style="font-weight:400;color:#aab0a4">/ Unit 1–02</span></span></div><div class="topright"><button class="pill" id="presentation">◱ 投影模式</button><button class="pill" onclick="window.print()">⎙ 列印課文</button></div></div></header>
+<header class="topbar"><div class="shell topinner"><div class="brand"><span class="brandicon">✉️</span><span>Reading Success <span style="font-weight:400;color:#aab0a4">/ Unit 1–02</span></span></div><div class="topright">
+      <div class="font-tools" role="group" aria-label="調整教材字體大小">
+        <span class="font-tools-label">字級</span>
+        <button type="button" class="font-tools-btn" id="fontDecrease" aria-label="縮小字體" title="縮小字體">A−</button>
+        <output id="fontSizeValue" aria-live="polite" aria-label="目前字體比例">120%</output>
+        <button type="button" class="font-tools-btn" id="fontIncrease" aria-label="放大字體" title="放大字體">A＋</button>
+        <button type="button" class="font-tools-reset" id="fontReset" title="恢復預設大小">還原</button>
+      </div>
+      <button class="pill" id="presentation">◱ 投影模式</button><button class="pill" onclick="window.print()">⎙ 列印課文</button></div></div></header>
 <main class="shell"><section class="hero"><div><div class="eyebrow">English reading · Family & Forgiveness</div><h1>A Letter to My<br>Favorite Sister</h1><div class="sub">寫給我最喜歡的姊姊的一封信</div><p>一封充滿草莓回憶、姊妹情誼與小小祕密的信。從課文理解、單字片語，到文法句型與即時練習，逐步讀懂 Chloe 想告訴 Jennifer 的話。</p><div class="chips"><span class="chip">🍓 Strawberry Farm</span><span class="chip">🐈 Animal Shelter</span><span class="chip">💌 Saying Sorry</span><span class="chip">📚 互動式英文閱讀</span></div></div><div class="illustration" aria-label="草莓園、信封與小貓主題插畫"><svg viewBox="0 0 450 310" role="img" aria-hidden="true"><defs><linearGradient id="sky" x1="0" x2="1"><stop stop-color="#fbe6d9"/><stop offset="1" stop-color="#e4f0df"/></linearGradient></defs><rect width="450" height="310" fill="url(#sky)"/><circle cx="381" cy="55" r="38" fill="#fff6e6" opacity=".85"/><path d="M0 220Q110 162 230 218T450 205V310H0" fill="#b8d2aa"/><path d="M0 251Q100 218 205 252T450 235V310H0" fill="#83ae80"/><g transform="translate(80 110) rotate(-7)"><rect x="0" y="10" width="217" height="143" rx="12" fill="#fffef7" stroke="#e3c3ae" stroke-width="3"/><path d="M3 19L108 95 214 19" stroke="#e5c6af" stroke-width="4" fill="none"/><path d="M3 148L83 82M214 148L133 82" stroke="#e5c6af" stroke-width="3"/><path d="M101 61c-17-20-40 7-18 22l25 18 26-19c23-20-3-45-26-20z" fill="#e78f91"/></g><g transform="translate(12 212)"><path d="M40 66Q19 22 49 0M40 66Q67 35 68 10" fill="none" stroke="#548356" stroke-width="5"/><ellipse cx="33" cy="19" rx="13" ry="6" fill="#538957" transform="rotate(-25 33 19)"/><ellipse cx="61" cy="32" rx="16" ry="7" fill="#538957" transform="rotate(28 61 32)"/><path d="M17 48Q39 29 53 47Q64 72 36 91Q12 76 17 48Z" fill="#dc5a61"/><path d="M23 41l14-9 13 11-13 0z" fill="#5e9958"/><g fill="#ffeacb"><circle cx="31" cy="55" r="2"/><circle cx="45" cy="58" r="2"/><circle cx="34" cy="70" r="2"/></g></g><g transform="translate(326 179)"><path d="M7 70Q-3 40 12 21L18 1 37 13 58 11 75 0 80 27Q105 83 49 98Q20 100 7 70Z" fill="#fff4e9" stroke="#b49580" stroke-width="3"/><path d="M21 56q10-10 19 0m14 0q10-10 19 0" stroke="#796d65" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M44 70l9 5 9-5" stroke="#c98583" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M20 88Q-15 94 1 114" fill="none" stroke="#b49580" stroke-width="8" stroke-linecap="round"/></g><g font-size="23" opacity=".85"><text x="345" y="147">♥</text><text x="51" y="75">✦</text></g></svg></div></section>
 <nav class="nav" aria-label="課程功能"><button class="active" data-tab="reading">📖 互動課文</button><button data-tab="overview">🗂️ 重點總整理</button><button data-tab="vocab">🍓 單字與片語</button><button data-tab="grammar">✏️ 文法與句型</button><button data-tab="practice">🎯 24 題快速練習</button><button data-tab="cloze50">📝 50 題課文克漏字</button><button data-tab="comprehension">💡 閱讀理解</button></nav>
 <section class="panel" id="overview">
@@ -411,5 +502,43 @@ $('overviewHeroPic').src=LESSON_ART[1];
 renderArticle();renderWords();renderGrammar();renderOverview();c50Render();
 // Earlier initialization already bound the vocab search; renderWords is resolved at click time.
 renderRequired();
+</script>
+<script>
+/* Accessible A−/A＋ controls; preference survives refresh on the same origin. */
+(function(){
+  'use strict';
+  const KEY = 'reading-success-unit102-font-size-v1';
+  const DEFAULT = 120, MIN = 100, MAX = 160, STEP = 10;
+  function clamp(value){
+    const n=Number(value);
+    return Number.isFinite(n) ? Math.min(MAX,Math.max(MIN,Math.round(n/STEP)*STEP)) : DEFAULT;
+  }
+  function read(){try{const v=localStorage.getItem(KEY);return v===null?DEFAULT:clamp(v)}catch(e){return DEFAULT}}
+  let level=read();
+  const doc=document.documentElement;
+  function apply(persist){
+    doc.style.setProperty('--lesson-font-scale',(level/100).toFixed(2));
+    const output=document.getElementById('fontSizeValue');
+    const down=document.getElementById('fontDecrease');
+    const up=document.getElementById('fontIncrease');
+    if(output){output.textContent=level+'%';output.setAttribute('aria-label','目前字體大小 '+level+'%')}
+    if(down)down.disabled=level<=MIN;
+    if(up)up.disabled=level>=MAX;
+    if(persist){try{localStorage.setItem(KEY,String(level))}catch(e){}}
+  }
+  // Apply early, before dynamic cards and pop-ups are opened.
+  apply(false);
+  function setup(){
+    const dec=document.getElementById('fontDecrease');
+    const inc=document.getElementById('fontIncrease');
+    const reset=document.getElementById('fontReset');
+    if(!dec||!inc||!reset)return;
+    dec.addEventListener('click',()=>{level=clamp(level-STEP);apply(true)});
+    inc.addEventListener('click',()=>{level=clamp(level+STEP);apply(true)});
+    reset.addEventListener('click',()=>{level=DEFAULT;apply(true)});
+    apply(false);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup,{once:true});else setup();
+})();
 </script>
 </body></html>
